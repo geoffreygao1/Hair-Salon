@@ -24,5 +24,11 @@ namespace HairSalon.Controllers
       return View(model);
     }
 
+    public ActionResult Create()
+    {
+      ViewBag.CategoryId = new SelectList(_db.Stylists, "StylistId", "Name");
+      return View();
+    }
+
   }
 }
