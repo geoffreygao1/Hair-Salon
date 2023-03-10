@@ -16,12 +16,6 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
-    // public ActionResult Index()
-    // {
-    //   List<Stylist> model = _db.Stylists.ToList();
-    //   return View(model);
-    // }
-
     public ActionResult Index(string name)
     {
       ViewBag.searchParameter = name;
@@ -38,9 +32,6 @@ namespace HairSalon.Controllers
         stylists = stylists.Where(s => s.Name!.Contains(name));
         return View(stylists.ToList());
       }
-
-
-
     }
 
     public ActionResult Create()
