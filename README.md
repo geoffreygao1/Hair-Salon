@@ -18,7 +18,7 @@ _This application contains a website that allows a user to track stylists and cl
 ## Setup/Installation Requirements
 
 ### Database Installation
-_Use the `geoffrey_gao_dump.sql` file located in the top level of this repo to create a new database in MySQL Workbench with the name `geoffrey_gao`._
+_Use the `geoffrey_gao.sql` file located in the top level of this repo to create a new database in MySQL Workbench with the name `geoffrey_gao`._
 
 ### Run this project
 * _Clone this repository_
