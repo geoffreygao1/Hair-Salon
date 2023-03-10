@@ -27,7 +27,7 @@ _Use the `geoffrey_gao.sql` file located in the top level of this repo to create
 ```JSON
 {
   "ConnectionStrings": {
-      "DefaultConnection": "Server=localhost;Port=3306;database=to_do_list_with_ef_core;uid=root;pwd=epicodus;"
+      "DefaultConnection": "Server=localhost;Port=3306;database=geoffrey_gao;uid=root;pwd=epicodus;"
   }
 }
 ```
