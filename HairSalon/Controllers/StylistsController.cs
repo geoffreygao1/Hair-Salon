@@ -24,11 +24,13 @@ namespace HairSalon.Controllers
 
     public ActionResult Index(string name)
     {
+      ViewBag.searchParameter = name;
       if (name == null)
       {
         List<Stylist> model = _db.Stylists.ToList();
         return View(model);
       }
+
       else
       {
         var stylists = from m in _db.Stylists

@@ -9,16 +9,22 @@
 
 <form asp-controller="Stylists" asp-action="Index">
   <p>
-    Stylist <input type="text" name="name" />
+    <input type="text" name="name" />
     <input type="submit" value="Search" />
   </p>
 </form>
 
-@if (@Model.Count == 0)
+
+@if (@Model.Count == 0 && String.IsNullOrEmpty(ViewBag.searchParameter))
 {
   <h3>No stylists have been added yet!</h3>
 }
-else
+else if (@Model.Count == 0)
+{
+  <p>No stylists of the name "@ViewBag.searchParameter" found</p>
+  <p>@Html.ActionLink("Reset Search", "Index")</p>
+}
+else if (String.IsNullOrEmpty(ViewBag.searchParameter))
 {
   <ul>
   @foreach (Stylist stylist in Model)
@@ -27,6 +33,17 @@ else
     }
   </ul>
 }
+else
+{
+  <ul>
+  @foreach (Stylist stylist in Model)
+    {
+      <li>@Html.ActionLink($"{stylist.Name}", "Details", new { id = stylist.StylistId })</li>
+    }
+    <p>@Html.ActionLink("Reset Search", "Index")</p>
 
+  </ul>
+}
+<hr>
 <p>@Html.ActionLink("Add new stylist", "Create")</p>
 <p>@Html.ActionLink("Back to home", "Index", "Home")</p>
