@@ -6,12 +6,23 @@
 @model List<HairSalon.Models.Client>;
 
 <h1>Clients</h1>
+<form asp-controller="Clients" asp-action="Index">
+  <p>
+    <input type="text" name="name" />
+    <input type="submit" value="Search" />
+  </p>
+</form>
 
-@if (@Model.Count == 0)
+@if (@Model.Count == 0 && String.IsNullOrEmpty(ViewBag.searchParameter))
 {
   <h3>No clients have been added yet!</h3>
 }
-else
+else if (@Model.Count == 0)
+{
+  <p>No clients of the name "@ViewBag.searchParameter" found</p>
+  <p>@Html.ActionLink("Reset Search", "Index")</p>
+}
+else if (String.IsNullOrEmpty(ViewBag.searchParameter))
 {
   <ul>
   @foreach (Client client in Model)
@@ -20,6 +31,15 @@ else
     }
   </ul>
 }
-
+else
+{
+  <ul>
+  @foreach (Client client in Model)
+    {
+      <li>@Html.ActionLink($"{client.Name}", "Details", new { id = client.ClientId }) (Stylist: @client.Stylist.Name ) </li>
+    }
+    <p>@Html.ActionLink("Reset Search", "Index")</p>
+  </ul>
+}
 <p>@Html.ActionLink("Add new client", "Create")</p>
 <p>@Html.ActionLink("Back to home", "Index", "Home")</p>
