@@ -7,14 +7,6 @@
 <hr>
 <h3>Search for stylist:</h3>
 
-@using (Html.BeginForm("Search", "Stylists", FormMethod.Get))
-{
-  @model HairSalon.Models.Stylist
-
-  @Html.TextBoxFor(model => model.Name)
-  <input type="submit" value="Search" />
-}
-
 <hr>
 <p>@Html.ActionLink("See all stylists", "Index", "Stylists")</p>
 <p>@Html.ActionLink("See all clients", "Index", "Clients")</p>

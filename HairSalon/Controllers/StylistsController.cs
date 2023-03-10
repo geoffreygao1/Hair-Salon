@@ -16,10 +16,29 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
+    // public ActionResult Index()
+    // {
+    //   List<Stylist> model = _db.Stylists.ToList();
+    //   return View(model);
+    // }
+
+    public ActionResult Index(string name)
     {
-      List<Stylist> model = _db.Stylists.ToList();
-      return View(model);
+      if (name == null)
+      {
+        List<Stylist> model = _db.Stylists.ToList();
+        return View(model);
+      }
+      else
+      {
+        var stylists = from m in _db.Stylists
+                       select m;
+        stylists = stylists.Where(s => s.Name!.Contains(name));
+        return View(stylists.ToList());
+      }
+
+
+
     }
 
     public ActionResult Create()
@@ -72,10 +91,10 @@ namespace HairSalon.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult Search(string name)
-    {
-      Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.Name == name);
-      return RedirectToAction("Details", new { id = thisStylist.StylistId });
-    }
+    // public ActionResult Search(string name)
+    // {
+    //   Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.Name == name);
+    //   return RedirectToAction("Details", new { id = thisStylist.StylistId });
+    // }
   }
 }
