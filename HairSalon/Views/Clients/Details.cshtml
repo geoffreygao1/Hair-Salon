@@ -5,10 +5,11 @@
 @model HairSalon.Models.Client
 
 <h1>Client Details</h1>
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-<h4>@Html.DisplayNameFor(model => model.PhoneNumber): @Html.DisplayFor(model => model.PhoneNumber)</h4>
-<h4>@Html.DisplayNameFor(model => model.Stylist): @Html.DisplayFor(model => model.Stylist.Name)</h4>
+<p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+<p>@Html.DisplayNameFor(model => model.PhoneNumber): @Html.DisplayFor(model => model.PhoneNumber)</p>
+<p>@Html.DisplayNameFor(model => model.Stylist): @Html.DisplayFor(model => model.Stylist.Name)</p>
 
+<hr>
 <p>@Html.ActionLink("Edit Client", "Edit", new { id = Model.ClientId })</p>
 <p>@Html.ActionLink("Delete Client", "Delete", new { id = Model.ClientId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
