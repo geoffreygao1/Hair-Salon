@@ -39,6 +39,14 @@ namespace HairSalon.Controllers
     public ActionResult Create()
     {
       ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+      if (_db.Stylists.Count() != 0)
+      {
+        ViewBag.NoStylist = false;
+      }
+      else
+      {
+        ViewBag.NoStylist = true;
+      }
       return View();
     }
 
