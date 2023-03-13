@@ -18,7 +18,15 @@ _This application contains a website that allows a user to track stylists and cl
 ## Setup/Installation Requirements
 
 ### Database Installation
-_Use the `geoffrey_gao.sql` file located in the top level of this repo to create a new database in MySQL Workbench with the name `geoffrey_gao`._
+_Use the `geoffrey_gao.sql` file located in the top level of this repo to create a new database in MySQL Workbench with the name `geoffrey_gao`.:_
+* _Install and configure MySQL on your system using [these instructions](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql)_
+* _Install MySQL Workbench from [here](https://www.mysql.com/products/workbench/)_
+* _Using MySQL Workbench, access your local instance under "MySQL Connections"_
+* _Under management, select Data Import/Restore. Under import options, select "Import from Self-Contained File" and select the path where `geoffrey_gao.sql` is saved.  Name the Default Target Schema:`geoffrey_gao`. In the Select Database Objects to Import section, select "Dump Structure Only"_
+* _Select "Start Import". The database should be visible in the Schemas tab of MySQL Workbench._
+
+
+
 
 ### Run this project
 * _Clone this repository_
@@ -27,7 +35,7 @@ _Use the `geoffrey_gao.sql` file located in the top level of this repo to create
 ```JSON
 {
   "ConnectionStrings": {
-      "DefaultConnection": "Server=localhost;Port=3306;database=geoffrey_gao;uid=root;pwd=epicodus;"
+      "DefaultConnection": "Server=localhost;Port=3306;database=geoffrey_gao;uid=root;pwd=[PASSWORD];"
   }
 }
 ```
